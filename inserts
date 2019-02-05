@@ -1,0 +1,18 @@
+use notas;
+insert into cursos(anno,division) values(5,1);
+insert into cursos(anno,division) values(4,1);
+insert into profesores values('1234','eric','engler','ericmengler@gmail.com');
+insert into profesores values('cabj','Sebastian','schachtner','smschachtner@gmail.com');
+insert into materias(nombre,cursos_id,profesores_pass) values('AGBD',1,'1234');
+insert into materias(nombre,cursos_id,profesores_pass) values('Base de Datos',2,'1234');
+insert into materias(nombre,cursos_id,profesores_pass) values('LPOO',1,'cabj');
+insert into materias(nombre,cursos_id,profesores_pass) values('Analisis de Sistemas',1,'cabj');
+insert into tipos(tipo) values('evaluacion');
+insert into tipos(tipo) values('TP');
+insert into tipos(tipo) values('Trabajo en Clase'); 
+insert into alumnos values(42649626,'Ian','Gonzalez','iangagustin@gmail.com',1);
+insert into alumnos values(42017707,'Nicolas','Andriano','nicolas.andriano99g@gmail.com',1);
+insert into alumnos values(42154789,'Francisco','Esposito','Frankpo@gmail.com',1);
+insert into alumnos values(42547892,'Ezequiel','Casanova','Eze20002013@gmail.com',1);
+insert into alumnos values(42687451,'Fidel','Justo','Tuca@gmail.com',1);
+insert into alumnos values(42487841,'Fer','Ochoa','Ocho@gmail.com',1);

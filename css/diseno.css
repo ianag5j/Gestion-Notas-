@@ -1,0 +1,60 @@
+/*Codigo usado en la pagina!!!!!*/
+body{
+  background-color: rgba(120, 154, 152, 0.65);
+}
+/*----------------------------------------------INDEX*/
+.Titulo{
+  border: 100px;
+}
+
+h1{
+
+}
+
+.imagen
+{
+  margin-left: 5px;
+}
+
+.imagenindex{
+  margin-left: 25%;
+  width: 40em;
+}
+
+ul.barnav{
+  border-color: black;
+  border: 50px;
+  top: 5em;
+  left: 1em;
+  width: 15em;
+}
+
+#LISTA a:link{
+  color: rgb(13, 148, 152);
+}
+
+#LISTA a:visited{
+  color: red;
+}
+
+#LISTA a:hover{
+  color: red;
+}
+
+#LISTA a:active{
+  color: violet;
+}
+
+/*---------------------------------------------INDEX*/
+
+/*---------------------------------------------SUBIRNOTA*/
+
+.BotonMateria{
+  margin-left: 2%;
+}
+
+/*---------------------------------------------SUBIRNOTA*/
+
+#memepiola{
+  width: 10em;
+}

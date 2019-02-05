@@ -1,0 +1,104 @@
+<?php
+	include_once("../../bd.php");
+?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
+  <body>
+
+  <img src="C:\Users\nico_\Desktop\Proyecto PHP Posta\extra\LogoColegio.png" alt="Logo del colegio E.T. N°36" width="100px">
+
+    <div class="container">
+
+      <br>
+
+      <form id="subirNota" name="subirNota" action="recibeDatosSubirNota.php" method="POST">
+
+					<!--Selecciona el CURSO-->
+        <div class="form-group">
+          <label for="nota">Curso:</label>
+				<?php
+					$consultaCursos = "SELECT * from cursos";
+					$resultado = $BD->query($consultaCursos);
+					if ($resultado->num_rows > 0)
+					{
+					   	echo "<select class="form-control" name='cbxCurso' id='cbxCurso'>";
+					   	echo "<option value='0'> Cursos </option>";
+					    while($fila = $resultado->fetch_assoc())
+					    {
+					    	echo "<option value=". $fila["id"]."> "	.$fila["anno"]. "º" . $fila["division"] . "  </option>";
+					    }
+					    echo "</select>";
+					}
+				?>
+			</div>
+
+					<!--Selecciona la MATERIA -->
+          <div class="form-group">
+            <label for="option">Elige una materia:</label>
+              <select class="form-control" name="cbxMateria" id="cbxMateria"></select>
+          </div>
+
+					<!--Selecciona el TIPO DE NOTA -->
+          <div>
+				        <label for="option">Seleccione el tipo de nota:</label>
+				        <?php
+					           $consultaTipos = "SELECT * from tipos";
+					           $resultadoTipos = $BD->query($consultaTipos);
+					           if ($resultadoTipos->num_rows > 0)
+					           {
+					   	              echo "<select class="form-control" name='cbxTipos' id='cbxTipos'>";
+					   	              echo "<option value='0'> Tipos </option>";
+					                  while($fila = $resultadoTipos->fetch_assoc())
+					                  {
+					    	                    echo "<option value=". $fila["idTipos"]."> " .$fila["tipo"]. " </option>";
+					                  }
+					                  echo "</select>";
+					           }
+				        ?>
+			    </div>
+
+					<!--Selecciona el TRIMESTRE -->
+          <div>
+				        <label for="option">Seleccione el trimestre: </label>
+				        <select class="form-control" name="trimestre" id="trimestre">
+					             <option value="0">Trimestres</option>
+					             <option value="1">1er</option>
+					             <option value="2">2do</option>
+					             <option value="3">3er</option>
+				        </select>
+			    </div>
+
+					<!--Selecciona la PUNTUACION -->
+          <div class="form-group">
+            <label for="nota">Puntuacion:</label>
+              <select class="form-control" name="cbxPuntuacion" id="cbxPuntuacion"></select>
+          </div>
+
+					<!--Ingresa el DNI y la CONTRASEÑA DEL PROFESOR -->
+          <div class="form-group">
+            <label for="dni">DNI:</label>
+            <input class="form-control" id="dni" type="text" placeholder="DNI:">
+            <label for="password">Contraseña de Profesor:</label>
+            <input class="form-control" id="password" type="text" placeholder="Contraseña">
+
+          </div>
+
+					<!--BOTON PARA SUBIR LOS DATOS -->
+          <div class="form-group">
+          <button class="brn btn-primary"> Subir </button>
+          </div>
+
+          <p class="help-block"><i> Recuerde de llenar todo correctamente. </i></p>
+      </form>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </body>
+</html>

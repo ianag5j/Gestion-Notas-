@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+  <img src="C:\Users\nico_\Desktop\Proyecto PHP Posta\extra\LogoColegio.png" alt="Logo del colegio E.T. N°36" width="100px">
+    <div>
+    Seleccione una Materia :
+    <select class="form-control" name="idMateria" id="cbxMateria"></select>
+  </div>
+
+  <input type="submit" id="verNotasMateria" name="verNotasMateria" value="Ver Notas" />
+</form>
+
+<!-- EL VER DATOS PROFESOR-->
+ <form id="verDatosProfes" name="verDatosProfesor" action="codigo/verDatosProfesor/verDatosProfesor.php" method="post">
+  <div>
+    Seleccione su curso:
+    </*?php
+      $consultaCursos = "SELECT * from cursos";
+      $resultado = $BD->query($consultaCursos);
+      if ($resultado->num_rows > 0)
+      {
+          echo "<select class="form-control" name='idCurso' id='cbxCurso'>";
+          echo "<option value='0'> Cursos </option>";
+          while($fila = $resultado->fetch_assoc())
+          {
+            echo "<option value=". $fila["id"]."> "	.$fila["anno"]. "º" . $fila["division"] . "  </option>";
+          }
+          echo "</select>";
+      }
+    ?>
+  </div>
+
+</form>
+
+<script language="javascript">
+			$(document).ready(function(){
+				$("#cbxCurso").change(function () {
+
+					$("#cbxCurso option:selected").each(function () {
+						id = $(this).val();
+						$.post("getMateria.php", { id: id }, function(data){
+							$("#cbxMateria").html(data);
+						});
+					});
+				})
+			});
+	</script>
+  <script src="js/bootstrap.js"></script>
+  </body>
+</html>
